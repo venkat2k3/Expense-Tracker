@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-// Register
+
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   const existing = await User.findOne({ username });
@@ -13,7 +13,7 @@ router.post('/register', async (req, res) => {
   res.status(201).json({ message: 'User created' });
 });
 
-// Login
+
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   const user = await User.findOne({ username, password });

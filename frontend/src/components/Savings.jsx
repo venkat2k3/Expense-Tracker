@@ -39,8 +39,6 @@ const Savings = () => {
       if (chartInstance.current) {
         chartInstance.current.destroy();
       }
-      
-      // Calculate monthly savings data
       const monthlySavings = calculateMonthlySavings(incomes, expenses);
       
       chartInstance.current = new Chart(chartRef.current, {
@@ -221,7 +219,7 @@ const Savings = () => {
         borderRadius: '8px',
         boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
         maxHeight: '450px',
-        height: '450px', // <-- add this
+        height: '450px',
         overflowY: 'auto'
       },
     historyHeading: {
@@ -252,7 +250,7 @@ const Savings = () => {
         padding: '1.5rem',
         borderRadius: '8px',
         boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-        height: '450px', // <-- add this
+        height: '450px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center'
@@ -272,13 +270,13 @@ const Savings = () => {
       justifyContent: 'space-between'
     },
     incomeCard: {
-      backgroundColor: '#27AE60' // Green for income
+      backgroundColor: '#27AE60'
     },
     expenseCard: {
-      backgroundColor: '#E74C3C' // Red for expense
+      backgroundColor: '#E74C3C'
     },
     savingsCard: {
-      backgroundColor: '#3498DB' // Blue for savings
+      backgroundColor: '#3498DB'
     },
     cardTitle: {
       fontSize: '16px',
@@ -305,13 +303,13 @@ const Savings = () => {
       fontStyle: 'italic'
     },
     positive: {
-      color: '#27AE60' // Green for positive amount
+      color: '#27AE60'
     },
     negative: {
-      color: '#E74C3C' // Red for negative amount
+      color: '#E74C3C'
     },
     neutral: {
-      color: '#3498DB' // Blue for neutral amount
+      color: '#3498DB'
     }
   };
 

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Income = require('../models/Income');
 
-// Get all income entries
+
 router.get('/', async (req, res) => {
   try {
     const incomes = await Income.find().sort({ date: -1 });
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Add a new income entry
+
 router.post('/', async (req, res) => {
   const income = new Income({
     name: req.body.name,

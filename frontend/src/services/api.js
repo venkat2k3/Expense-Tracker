@@ -9,7 +9,6 @@ const api = axios.create({
   },
 });
 
-// Authentication services
 export const registerUser = (userData) => {
   return api.post('/register', userData);
 };
@@ -18,7 +17,6 @@ export const loginUser = (credentials) => {
   return api.post('/login', credentials);
 };
 
-// Transaction services
 export const getTransactions = () => {
   return api.get('/transactions');
 };

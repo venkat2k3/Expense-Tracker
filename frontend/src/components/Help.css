@@ -1,6 +1,6 @@
 .help-container {
     max-width: 1200px;
-    margin: 90px auto 30px; /* Top margin to account for fixed navbar */
+    margin: 90px auto 30px;
     padding: 20px;
     font-family: Arial, sans-serif;
   }

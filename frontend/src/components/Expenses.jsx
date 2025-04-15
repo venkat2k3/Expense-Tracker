@@ -34,12 +34,10 @@ const Expense = () => {
   useEffect(() => {
     if (!chartRef.current) return;
 
-    // Destroy existing chart instance if it exists
     if (chartInstance.current) {
       chartInstance.current.destroy();
     }
 
-    // Create new chart instance
     chartInstance.current = new Chart(chartRef.current, {
       type: 'bar',
       data: {
@@ -166,7 +164,7 @@ const Expense = () => {
       borderRadius: '8px',
       boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
       maxHeight: '450px',
-      height: '450px', // <-- add this
+      height: '450px',
       overflowY: 'auto'
     },
     historyHeading: {
@@ -195,7 +193,7 @@ const Expense = () => {
       padding: '1.5rem',
       borderRadius: '8px',
       boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-      height: '450px', // <-- add this
+      height: '450px',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center'

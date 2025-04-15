@@ -8,17 +8,15 @@ const Editprofile = () => {
   const [username, setUsername] = useState(currentUser.username);
   const [email, setEmail] = useState(currentUser.email);
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Call updateProfile and wait for it to complete
+  
     await updateProfile({ username, email, password });
-    
-    // Redirect to home page and show alert
+
     alert('Profile updated successfully!');
-    navigate('/'); // Redirect to home page
+    navigate('/');
   };
 
   return (

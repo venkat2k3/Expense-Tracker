@@ -7,7 +7,6 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    // Check if user is logged in from localStorage
     const user = localStorage.getItem('user');
     if (user) {
       setCurrentUser(JSON.parse(user));

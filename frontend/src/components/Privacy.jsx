@@ -7,7 +7,7 @@ const Privacy = () => {
   const [email, setEmail] = useState(currentUser.email);
   const [username, setUsername] = useState(currentUser.username);
   const [password, setPassword] = useState('');
-  const [twoFactorEnabled, setTwoFactorEnabled] = useState(false); // Example for 2FA
+  const [twoFactorEnabled, setTwoFactorEnabled] = useState(false);
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();
@@ -17,7 +17,6 @@ const Privacy = () => {
 
   const handleTwoFactorToggle = () => {
     setTwoFactorEnabled(!twoFactorEnabled);
-    // Add logic to enable/disable two-factor authentication
     alert(`Two-Factor Authentication is now ${!twoFactorEnabled ? 'enabled' : 'disabled'}.`);
   };
 

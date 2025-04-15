@@ -11,7 +11,6 @@ const Income = () => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
-  // Fetch income data
   useEffect(() => {
     const fetchIncomeData = async () => {
       try {
@@ -29,8 +28,6 @@ const Income = () => {
 
     fetchIncomeData();
   }, []);
-
-  // Handle chart updates
   useEffect(() => {
     if (chartRef.current) {
       if (chartInstance.current) {
