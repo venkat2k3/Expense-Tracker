@@ -1,16 +1,20 @@
-# client/Dockerfile
-FROM node:18-alpine as build
+# Use the official Node.js image
+FROM node:18
 
-WORKDIR /app
+# Set the working directory inside the container
+WORKDIR /usr/src/app
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
+
+# Install frontend dependencies
 RUN npm install
 
+# Copy the frontend source code into the container
 COPY . .
-RUN npm run build
 
-# Serve with Nginx
-FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Expose the port the frontend app will run on
+EXPOSE 3000
+
+# Run the frontend app
+CMD ["npm", "start"]

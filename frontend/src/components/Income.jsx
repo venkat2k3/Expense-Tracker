@@ -16,7 +16,7 @@ const Income = () => {
     const fetchIncomeData = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get('http://localhost:5000/api/transactions');
+        const response = await axios.get('http://localhost:8099/api/transactions');
         const incomeTransactions = response.data.filter(transaction => transaction.type === 'income');
         setIncome(incomeTransactions);
         setIsLoading(false);
@@ -70,7 +70,7 @@ const Income = () => {
 
     try {
       setError(null);
-      const response = await axios.post('http://localhost:5000/api/transactions', {
+      const response = await axios.post('http://localhost:8099/api/transactions', {
         name: incomeName,
         amount: parseFloat(incomeAmount),
         type: 'income'

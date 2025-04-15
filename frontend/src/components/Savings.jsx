@@ -14,7 +14,7 @@ const Savings = () => {
     const fetchTransactionData = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get('http://localhost:5000/api/transactions');
+        const response = await axios.get('http://localhost:8099/api/transactions');
         const expenseTransactions = response.data.filter(transaction =>
           transaction.type === 'expense'
         );

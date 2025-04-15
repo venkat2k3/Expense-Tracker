@@ -1,28 +1,36 @@
-version: "3.8"
+version: '3.8'
+
 services:
-  client:
-    build: ./frontend
-    ports:
-      - "3000:80"
-    depends_on:
-      - server
-
-  server:
-    build: ./backend
-    ports:
-      - "5000:5000"
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/mydb
-    depends_on:
-      - mongo
-
   mongo:
-    image: mongo
-    container_name: mongo
+    image: mongo:latest
+    container_name: expensetracker-mongo
     ports:
       - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
+    networks:
+      - mongo_network
 
-volumes:
-  mongo-data:
+  backend:
+    build:
+      context: ./backend  # Pointing to the backend folder
+    container_name: expensetracker-backend
+    ports:
+      - "8099:8099"
+    depends_on:
+      - mongo
+    networks:
+      - mongo_network
+
+  frontend:
+    build:
+      context: ./frontend  # Pointing to the frontend folder
+    container_name: expensetracker-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - mongo_network
+
+networks:
+  mongo_network:
+    driver: bridge
